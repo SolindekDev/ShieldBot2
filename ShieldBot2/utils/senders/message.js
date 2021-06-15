@@ -30,7 +30,7 @@ module.exports = {
     some: function(messageChannelSend, messageContent, messageTitle, messageVariable) {
         const GoodEmbed = new MessageEmbed()
             .setTitle(messageTitle)
-            .setColor('RED')
+            .setColor('BLUE')
             .setDescription(messageContent)
             .setFooter(configClient.footer, messageVariable.author.displayAvatarURL({dynamic: true}))
         messageChannelSend.send(GoodEmbed)
