@@ -2,7 +2,7 @@ const { Collection, Client, MessageEmbed } = require("discord.js");
 
 const client = new Client()
 const configClient = require('./utils/config/client')
-const configCommands = require('./utils/config/commands')
+const commandsClient = require('./utils/config/commands')
 const eventsHandler = require('./handlers/event')
 const commandHandler = require('./handlers/command')
 
