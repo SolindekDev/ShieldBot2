@@ -29,7 +29,7 @@ module.exports = {
             const srednia = message.client.guilds.cache.reduce((a, g) => a + g.memberCount, 0) / message.client.guilds.cache.size;
             const GoodEmbed = new MessageEmbed()
                 .setTitle('Statystyki Bota')
-                .setColor('#209094')
+                .setColor('#002d96')
                 .addField('Cache', `> Ilość Serwerów: **${guilds}**
                 > Ilość Kanałów: **${channels}**
                 > Ilość Użytkowników: **${users}**

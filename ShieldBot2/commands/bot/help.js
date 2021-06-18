@@ -28,20 +28,15 @@ module.exports = {
             .setAuthor(`Pomoc!`, message.author.displayAvatarURL({dynamic: true}))
             .setThumbnail(client.user.displayAvatarURL({dynamic: true}))
             .setColor('#002d96')
-            .setDescription(`Aby wyszukać inforamcje o danej komendzie wpisz: **pomoc <komenda>**
-            
-            <:hammer:854994483389005824> **• Przydatne**
-            \`ankieta\`,\`avatar\`,\`serverinfo\`,\`channelinfo\`,\`userinfo\`
-            \`say\`,\`pogoda\`,\`btc\`,\`mcprofil\`,\`binary\`
-
-            <:likeserce:854994483036291113> **• 4Fun**
-            \`ciufka\`, \`confusedstonk\`, \`facepalm\`, \`hitler\`, \`jail\`, 
-            \`malowanie\`, \`notsonks\`, \`presentation\`, \`putin\`, \`sepia\`,
-            \`ship\`, \`trigger\`, \`wanted\`, \`blur\`, \`ad\`, \`affect\`, \`lyrics\`,
-            \`knp\`, \`zarty\`, \`zawod\`
-            
-            <:dev:854994483322159134> **• Bot**
-            \`pomoc\`,\`invite\`,\`nowosci\`,\`linki\``)
+            .addField('<:hammer:854994483389005824> **• Przydatne**', `\`ankieta\`, \`avatar\`, \`serverinfo\`, \`channelinfo\`, \`userinfo\`
+            \`say\`, \`pogoda\`, \`crypto\`, \`mcprofil\`, \`binary\`, \`pogoda\``)
+            .addField('<:likeserce:854994483036291113> **• 4Fun**', `\`8ball\`, \`ad\`, \`affect\`, \`beautiful\`, \`blur\`, \`captcha\`,
+            \`ciufka\`, \`confusedstonk\`, \`facepalm\`, \`hitler\`, \`jail\`,
+            \`kamienpapiernozyce\`, \`lyrics\`, \`malowanie\`, \`notstonks\`,
+            \`pornhubcomment\`, \`presentation\`, \`putin\`, \`sepia\`, \`ship\`,
+            \`trigger\`, \`tweet\`, \`wanted\`, \`zarty\`, \`zawod\``)
+            .addField('<:dev:854994483322159134> **• Bot**', '\`pomoc\`, \`invite\`, \`linki\`, \`ping\`, \`staff\`, \`botinfo\`')
+            .setDescription(`Aby wyszukać inforamcje o danej komendzie wpisz: **pomoc <komenda>**`)
             .setFooter(configClient.footer, message.author.displayAvatarURL({dynamic: true}))
         message.channel.send(GoodEmbed)
     }

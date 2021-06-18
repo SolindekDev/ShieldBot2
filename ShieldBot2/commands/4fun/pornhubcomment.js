@@ -4,22 +4,19 @@ const sender = require('../../utils/senders/message')
 const configClient = require('../../utils/config/client')
 
 module.exports = {
-    name: "captcha",
+    name: "pornhubcomment",
     category: "4fun",
-    aliases: ["ca", "c"],
-    description: "Captcha generator",
+    aliases: ["pc", "pornhubc" ,"pcomment"],
+    description: "Youtube comment generator",
     run: async (client, message, args) => {
+        if (!args.slice(0).join(' ')) return sender.error(message.channel, 'Nie podano treści komentarza', message)
         const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.author
         try {
-            const url = `https://nekobot.xyz/api/imagegen?type=captcha&url=` + user.displayAvatarURL({dynamic: true}) + `&username=` + user.username
-            let image, response;
-            response = await axios.get(url.replace(/ /g, '%20'))
-            image = response.data;
-                
+            
             const GoodEmbed = new MessageEmbed()
-                .setTitle('Captcha')
+                .setTitle('(¬‿¬)')
                 .setColor('#002d96')
-                .setImage(image.message)
+                .setImage(`https://nekobot.xyz/api/imagegen?type=phcomment&text=`+ args.slice(0).join(' ') +`&image=` + user.displayAvatarURL({dynamic: true}) + `&username=` + user.username + `&raw=1`.replace(/ /g, '%20'))
                 .setFooter(configClient.footer, message.author.displayAvatarURL({dynamic: true}))
             message.channel.send(GoodEmbed)
         }
