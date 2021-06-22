@@ -28,14 +28,18 @@ module.exports = {
             .setAuthor(`Pomoc!`, message.author.displayAvatarURL({dynamic: true}))
             .setThumbnail(client.user.displayAvatarURL({dynamic: true}))
             .setColor('#002d96')
+            .addField('<:chat:854994483325435964> **• Moderacja**', '\`ban\`, \`clear\`, \`delwarn\`, \`kick\`, \`slowmode\`, \`warn\`, \`warns\`')
+            .addField('<:gift:854994483354664971> **• Levele**', '\`rank\`, \`lvl-config\`')
+            .addField('<:link:854994482997755936> **• Config**', '\`ustaw\`, \`antybot\`')
             .addField('<:hammer:854994483389005824> **• Przydatne**', `\`ankieta\`, \`avatar\`, \`serverinfo\`, \`channelinfo\`, \`userinfo\`
             \`say\`, \`pogoda\`, \`crypto\`, \`mcprofil\`, \`binary\`, \`pogoda\``)
             .addField('<:likeserce:854994483036291113> **• 4Fun**', `\`8ball\`, \`ad\`, \`affect\`, \`beautiful\`, \`blur\`, \`captcha\`,
             \`ciufka\`, \`confusedstonk\`, \`facepalm\`, \`hitler\`, \`jail\`,
             \`kamienpapiernozyce\`, \`lyrics\`, \`malowanie\`, \`notstonks\`,
-            \`pornhubcomment\`, \`presentation\`, \`putin\`, \`sepia\`, \`ship\`,
-            \`trigger\`, \`tweet\`, \`wanted\`, \`zarty\`, \`zawod\``)
+            \`pornhubcomment\`, \`presentation\`, \`putin\`, \`sepia\`, \`ship\`
+            \`pukpuk\`, \`trigger\`, \`tweet\`, \`wanted\`, \`zarty\`, \`zawod\``)
             .addField('<:dev:854994483322159134> **• Bot**', '\`pomoc\`, \`invite\`, \`linki\`, \`ping\`, \`staff\`, \`botinfo\`')
+            .addField('<:1556blurplerules:854994483296206878> **• Dev**', '\`eval\`, \`gban\`, \`ungban\`')
             .setDescription(`Aby wyszukać inforamcje o danej komendzie wpisz: **pomoc <komenda>**`)
             .setFooter(configClient.footer, message.author.displayAvatarURL({dynamic: true}))
         message.channel.send(GoodEmbed)

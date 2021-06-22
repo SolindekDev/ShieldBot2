@@ -1,5 +1,6 @@
 const configClient = require('../utils/config/client')
 const sender = require('../utils/senders/message')
+const db = require('quick.db')
 
 module.exports = {
     name: "message",
@@ -9,6 +10,12 @@ module.exports = {
         if (message.author.bot) return;
         if (!message.guild) return;
         if (!message.content.startsWith(prefix)) return;
+
+        let gban = db.get(`gban_${message.author.id}`)
+        if (gban == "true")
+        {
+            return
+        }
     
         // If message.member is uncached, cache it.
         if (!message.member) message.member = await message.guild.fetchMember(message);

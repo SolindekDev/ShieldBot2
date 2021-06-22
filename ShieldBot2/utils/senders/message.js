@@ -11,6 +11,14 @@ module.exports = {
             .setFooter(configClient.footer, messageVariable.author.displayAvatarURL({dynamic: true}))
         messageChannelSend.send(GoodEmbed)
     },
+    levelup: function(messageChannelSend, messageContent, messageVariable) {
+        const GoodEmbed = new MessageEmbed()
+            .setTitle('Level UP!')
+            .setColor('YELLOW')
+            .setDescription(messageContent)
+            .setFooter(configClient.footer, messageVariable.author.displayAvatarURL({dynamic: true}))
+        messageChannelSend.send(GoodEmbed)
+    },
     error: function(messageChannelSend, messageContent, messageVariable) {
         const GoodEmbed = new MessageEmbed()
             .setTitle('Coś poszło nie tak!')
