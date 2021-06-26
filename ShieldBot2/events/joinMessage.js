@@ -21,7 +21,7 @@ module.exports = {
                 .addField(`<:chat:854994483325435964> Prefix`, '`s!`')
                 .addField(`<:likeserce:854994483036291113> Wszystkie komendy`, '`s!help`')
                 .addField(`<:hammer:854994483389005824> Ustawienie powitania`, '`s!ustaw`')
-                .addField(`<:hammer:854994483389005824> Linki`, '(Strona Internetowa)[https://shieldbot.gq/]')
+                .addField(`<:hammer:854994483389005824> Linki`, '[Strona Internetowa](https://shieldbot.gq/)')
                 .setThumbnail(guild.client.user.displayAvatarURL({dynamic: true}))
                 .setFooter(configClient.footer, guild.client.user.displayAvatarURL({dynamic: true}))
             defaultChannel.send(GoodEmbed)

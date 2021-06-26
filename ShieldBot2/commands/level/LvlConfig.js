@@ -6,6 +6,7 @@ module.exports = {
     name: "lvl-config",
     description: "Włączasz/Wyłączasz/Ustawiasz kanał leveli/le",
     aliases: ["level-config"],
+	category: "level",
     run: async (client, message, args) => {
 
         if (!message.member.hasPermission("MANAGE_GUILD")) return s.error(message.channel, 'Nie masz odpowiednich uprawnień do tej komendy `MANAGE_GUILD`', message)

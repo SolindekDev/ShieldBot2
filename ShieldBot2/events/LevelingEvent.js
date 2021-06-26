@@ -45,7 +45,7 @@ module.exports = {
                     // .setColor("GREEN")
                     // .setFooter(`${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
                     // message.author.send(lvlup_embed)
-                    sender.levelup(message.author, `Gratulacje **${message.author.tag}**! Wbiłeś/aś **${db.get(`ilvl_${message.author.id}_${message.guild.id}`)}** level!`, message)
+                    sender.levelup(message.author, `Gratulacje **${message.author.tag}**! Wbiłeś/aś **${db.get(`ilvl_${message.author.id}_${message.guild.id}`)}** level na serwerze ${message.guild.name}`, message)
                 }
             }
         //}

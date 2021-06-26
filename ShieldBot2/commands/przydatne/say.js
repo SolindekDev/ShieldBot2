@@ -16,6 +16,11 @@ module.exports = {
         {
             sender.error(message.channel, 'Nie posałeś wiadomości do powiedzenia', message)
         }
+        if (ar.includes('@everyone') || ar.includes('@here') || ar.includes('@'))
+        {
+            sender.error(message.channel, 'Nie możesz nikogo oznaczać!', message)
+            return;
+        }
         message.delete()
         message.channel.send(ar)
     }

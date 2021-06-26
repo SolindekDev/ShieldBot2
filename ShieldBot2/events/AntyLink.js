@@ -10,22 +10,25 @@
             let dbget = db.get(`antybot_link_${msg.guild.id}`) || 'false'
                 if (dbget == "true")
                 {
-                    const content = msg.content
-
-                    if (msg.content.includes("discord.gg/" || "https://discord.gg/" || "discordapp.com/invite/" || "https://discordapp.com/invite/"))
-                    {
+                    if(msg.member.hasPermission(["KICK_MEMBERS"])) {
                         return;
                     }
-                    if (msg.content.includes('https://' || 'http://' || 'www.' || '.pl' || '.com' || '.eu' || '.de' || '.gq'))
-                    {
-                        msg.delete()
-                        const Embed = new MessageEmbed()
-                            .setAuthor("Coś ci nie pykło " + msg.author.username + " :)")
-                            .setColor("RED")
-                            .setDescription("```yaml\nNie wysyłaj linków!``` \nTen serwer ochrania **ShieldBot** który umożliwia włączenie trybu **AntyLinks**")
-                            .setFooter(configClient.footer, msg.author.displayAvatarURL({dynamic: true}))
-                        return msg.channel.send(Embed);
-                    }
+                        const content = msg.content
+
+                        if (msg.content.includes("discord.gg/" || "https://discord.gg/" || "discordapp.com/invite/" || "https://discordapp.com/invite/"))
+                        {
+                            return;
+                        }
+                        if (msg.content.includes('https://') || msg.content.includes('http://') || msg.content.includes('www.') || msg.content.includes('.pl') || msg.content.includes('www.')  || msg.content.includes('.de') || msg.content.includes('.com')) 
+                        {
+                            msg.delete()
+                            const Embed = new MessageEmbed()
+                                .setAuthor("Coś ci nie pykło " + msg.author.username + " :)")
+                                .setColor("RED")
+                                .setDescription("```yaml\nNie wysyłaj linków!``` \nTen serwer ochrania **ShieldBot** który umożliwia włączenie trybu **AntyLinks**")
+                                .setFooter(configClient.footer, msg.author.displayAvatarURL({dynamic: true}))
+                            return msg.channel.send(Embed);
+                        }
                 }
         }
     }

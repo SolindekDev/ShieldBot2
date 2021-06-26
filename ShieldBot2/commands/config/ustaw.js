@@ -15,8 +15,8 @@ module.exports = {
         const channelMentions = message.mentions.channels.first()
         const textJoinExit = args.slice(2).join(' ')
         
-        if(!msg.member.hasPermission(["KICK_MEMBERS"])) {
-            sender.error(message.channel, "Nie posiadasz odpowiednich uprawnień! `KICK_MEMBERS`")
+        if(!message.member.hasPermission(["KICK_MEMBERS"])) {
+            sender.error(message.channel, "Nie posiadasz odpowiednich uprawnień! `KICK_MEMBERS`", message)
             return
         }
         if (textorchannel == "state")
