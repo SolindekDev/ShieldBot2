@@ -79,10 +79,15 @@ app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
 });
-app.get('/info', checkAuth, function(req, res) {
-    //console.log(req.user.username)
+app.get('/info', checkAuth, async function(req, res) {
+    console.log(req.user)
+    if (req.query.server)
+    {
+        connection.query
+    }
     // botOnGuild(req.user)
     res.render('panel', {
+        serverCode: req.query.server,
         client: client,
         username: req.user.username,
         codeavatar: req.user.avatar,

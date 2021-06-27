@@ -2,11 +2,17 @@
 :root {
     --bgcolor: rgb(31, 30, 41);
 }
+.footer {
+    background-color: black;
+    color: white;
+    padding: 70px 20px;
+    text-align: center;
+}
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(31, 30, 41);
     color: white;
-    padding: 0px 40px;
+    /* padding: 0px 40px; */
 }
 a {
     text-decoration: none;
