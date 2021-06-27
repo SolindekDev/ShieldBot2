@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+:root {
+    --bgcolor: rgb(31, 30, 41);
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(31, 30, 41);
+    color: white;
+    padding: 0px 40px;
+}
+a {
+    text-decoration: none;
+    color: rgb(65, 170, 255);
+    transition: 0.3s all ease-in-out;
+}
+a:hover {
+    color: rgb(48, 122, 182);
+    
+}
+.imageAvatar {
+    border-radius: 50%;
+    margin-right: 20px;
+    transition: 0.2s all ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+}
+.imageAvatar:hover {
+    transform: scale(1.07);
+}
+.top {
+    margin-top: 60px;
+    background-color: rgb(53, 48, 70);
+    padding: 30px 50px;
+    border-radius: 32px;
+    text-align: left;
+    clear: both;
+    transition: 0.1s all ease-in-out;
+}
+.username {
+    font-size: 3em;
+    margin-top: 10px !important;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 500;
+}
+.id {
+    font-weight: 100;
+    padding: 0%;
+    margin: 0%;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.card-servers {
+    background-color: rgb(53, 48, 70);
+    border-radius: 32px;
+    margin-top: 40px;
+    padding: 20px 50px;
+    transition: 0.1s all ease-in-out;
+
+}
+.card-servers:hover {
+    background-color: rgb(47, 43, 61);
+}
+.top:hover {
+    background-color: rgb(47, 43, 61);
+}
+.serverAvatar {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 32px;
+}
+@media only screen and (max-width: 730px){
+    .left {
+        float: none;
+    }
+    .top {
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 589px) {
+    .username {
+        font-size: 40px;
+    }
+}
+@media only screen and (max-width: 509px) {
+    .username {
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 434px) {
+    .username {
+        font-size: 25px;
+    }
+}
+@media only screen and (max-width: 397px) {
+    .username {
+        font-size: 20px;
+    }
+    .id {
+        font-size: 10px;
+    }
+    .top {
+        margin-top: 60px;
+        background-color: rgb(53, 48, 70);
+        padding: 10px 30px;
+        border-radius: 32px;
+    }
+}
+.leftx {
+    float: left;
+}
+.rightx {
+    float: right;
+}
+.clearx {
+    clear: both;
+}
+.serverName {
+    font-size: 50px;
+    margin-top: 10px !important;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 500;
+}
+.arrow {
+    font-size: 50px;
+    margin-top: 15px !important;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 500;
+}
+.roleServer {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 100;
+}
+/* @media only screen and (max-width: 434px) {
+    .username {
+        font-size: 25px;
+    }
+} */
+@media only screen and (max-width: 859px){
+    .leftx {
+        float: none;
+    }
+    .card-servers {
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 589px) {
+    .serverName {
+        font-size: 40px;
+    }
+}
+@media only screen and (max-width: 509px) {
+    .serverName {
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 434px) {
+    .serverName {
+        font-size: 25px;
+    }
+}
+@media only screen and (max-width: 397px) {
+    .serverName {
+        font-size: 20px;
+    }
+    .card-servers {
+        margin-top: 60px;
+        background-color: rgb(53, 48, 70);
+        padding: 10px 30px;
+        border-radius: 32px;
+    }
+}
