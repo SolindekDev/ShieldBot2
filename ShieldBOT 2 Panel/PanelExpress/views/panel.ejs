@@ -33,21 +33,78 @@
                                 <span class="id"><br><a href="http://localhost:5000/info">Wróć do listy serwerów</a></span>
                             </div>
                             <div class="clear"></div>
+                        </div>
+                       
+                        <div class="infoserver">
+                            <h1>Informacje o serwerze</h1><br>
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col">
+                                    <span style="font-size: 26px;">Użytkownicy</span><br>
+                                    <%= members %>
+                                  </div>
+                                  <div class="col">
+                                    <span style="font-size: 26px;">Kanały</span><br>
+                                    <%= channels %>
+                                  </div>
+                                  <div class="col">
+                                    <span style="font-size: 26px;">Prefix</span><br>
+                                    <%= prefix %>
+                                  </div>
+                                </div>
+                              </div>
                         </div><br>
                         <br><br>
+                        <div class="error" id="errorBox">
+                            <% if (error) {%>
+                            <div class="alert alert-danger" role="alert">
+                                <%= error %>
+                            </div>
+                            <% } %>
+                        </div>
+                        <div class="good" id="goodBox">
+                            <% if (good) {%>
+                                <div class="alert alert-success" role="alert">
+                                <%= good %>
+                            </div>
+                            <% } %>
+                        </div>
                         <h1>Prefix</h1>
-                        <form action="/aktprefix/" method="get">
                             <div class="input-group mb-3">
-                                <input type="text" name="prefix" class="form-control" value="s!" placeholder="Prefix Serwerowy" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" name="prefix" id="prefixinput" class="form-control" value="<%= prefix %>" placeholder="Prefix Serwerowy" aria-label="Username" aria-describedby="basic-addon1">
                               </div>    
-                              <button type="submit" class="btn btn-success">Zapisz zmiany</button><br><br><br>
-                        </form>
+                              <button type="button" onclick="update()" class="btn btn-success">Zapisz zmiany</button><br><br><br>
                     </div>
                     <div class="footer">
                         ShieldBOT 2021 ®
                         Wszelkie prawa zastrzeżone<br><br>
                         <a href="/privace">Polityka prywatności</a> | <a href="/staff">Administracja</a> 
                     </div>
+                    <script>
+                        const prefixInput = document.getElementById("prefixinput")
+                        const errorInput = document.getElementById("errorBox")
+                        const goodInput = document.getElementById("goodBox")
+
+                        function update()
+                        {
+                            goodInput.innerHTML = " "
+                            if (!prefixInput.value)
+                            {
+                                errorInput.innerHTML = `<div class="alert alert-danger" role="alert">
+                                    Nie podałeś prefixu!
+                                </div>`
+                                return
+                            }
+                            if (prefixInput.value.length > 4)
+                            {
+                                errorInput.innerHTML = `<div class="alert alert-danger" role="alert">
+                                    Podany prefix jest za długi, maksymalnie 4 znaki!
+                                </div>`
+                                return
+                            }
+                            location.href="http://localhost:5000/akt?prefix=" + prefixInput.value + "&server=<%= serverCode %>"
+                        }
+                    </script>
                 <% } %>
             <% } %>
         <% }) %>

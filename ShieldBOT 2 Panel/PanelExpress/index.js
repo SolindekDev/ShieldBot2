@@ -6,6 +6,7 @@ const app      = express();
 const mysql = require('mysql')
 const Discord = require('discord.js')
 const client = new Discord.Client();
+const util = require('util')
 
 client.login('Njg2MjAyMTY3ODc4NzQ2Mjgy.XmTxkQ.vxZFeknqvAl1U4y1xbmTtZ3X2J8')
 
@@ -79,24 +80,95 @@ app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
 });
+app.get('/akt', async function(req, res) {
+    if (!req.query.prefix)
+    {
+        await res.redirect('http://localhost:5000/info')
+        return
+    }
+    if (!req.query.server)
+    {
+        await res.redirect('http://localhost:5000/info')
+        return
+    }
+    connection.query("UPDATE `prefix` SET `serwerid`='"+ req.query.server +"',`prefix`='"+ req.query.prefix +"' WHERE `serwerid` = " + req.query.server, (results, err) => {
+        return res.redirect('http://localhost:5000/info?good=Pomyślnie%20zaaktualizowano%20zmiany!&server=' + req.query.server)
+    })
+})
+
 app.get('/info', checkAuth, async function(req, res) {
-    console.log(req.user)
+    //console.log(req.user)
     if (req.query.server)
     {
-        connection.query
+        // connection.query('SELECT `prefix` FROM `prefix` WHERE `serwerid` = ' + req.query.server, (err, results) => {
+        //     if (err) {
+        //         console.log(err.message)
+        //         renderPanel()
+        //         return
+        //     }
+        //     console.log(util.inspect(results[0]['prefix']))
+        //     const prefix = util.inspect(results[0]['prefix']).replace(/'/g, '')
+        //     res.render('panel', {
+        //         serverCode: req.query.server,
+        //         client: client,
+        //         username: req.user.username,
+        //         codeavatar: req.user.avatar,
+        //         id: req.user.id,
+        //         discriminator: req.user.discriminator,
+        //         guilds: req.user.guilds,
+        //         connectionMysql: connection,
+        //         prefix: prefix
+        //     }, )
+        // })
+        connection.query('SELECT `prefix` FROM `prefix` WHERE `serwerid` = ' + req.query.server, (err, results) => {
+            if (err) {
+                console.log(err.message)
+                renderPanel()
+                return
+            }
+            if (results)
+            {
+                console.log(util.inspect(results[0]['prefix']))
+                const prefix = util.inspect(results[0]['prefix']).replace(/'/g, '')
+                const members = client.guilds.cache.get(req.query.server).memberCount || 0
+                const channels = client.guilds.cache.get(req.query.server).channels.cache.sort((a, b) => b.position - a.position).map(role => role.toString()) || 0
+                res.render('panel', {
+                    serverCode: req.query.server,
+                    client: client,
+                    username: req.user.username,
+                    codeavatar: req.user.avatar,
+                    id: req.user.id,
+                    discriminator: req.user.discriminator,
+                    guilds: req.user.guilds,
+                    connectionMysql: connection,
+                    prefix: prefix,
+                    error: req.query.error,
+                    good: req.query.good,
+                    members: members,
+                    channels: channels.length,
+                }, )
+            }
+        })
+    }
+    else {
+        renderPanel()
     }
     // botOnGuild(req.user)
-    res.render('panel', {
-        serverCode: req.query.server,
-        client: client,
-        username: req.user.username,
-        codeavatar: req.user.avatar,
-        id: req.user.id,
-        discriminator: req.user.discriminator,
-        guilds: req.user.guilds,
-        connectionMysql: connection,
-        
-    }, )
+    function renderPanel() {
+        res.render('panel', {
+            serverCode: req.query.server,
+            client: client,
+            username: req.user.username,
+            codeavatar: req.user.avatar,
+            id: req.user.id,
+            discriminator: req.user.discriminator,
+            guilds: req.user.guilds,
+            connectionMysql: connection,
+            prefix: 's!',
+            error: req.query.error,
+            good: req.query.good
+        }, )
+    }
 });
 
 

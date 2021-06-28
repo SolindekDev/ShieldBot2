@@ -92,7 +92,7 @@
  Strategy.prototype.checkScope = function(scope, accessToken, cb) {
      if (this._scope && this._scope.indexOf(scope) !== -1) {
          this._oauth2.get('https://discord.com/api/users/@me/' + scope, accessToken, function(err, body, res) {
-             if (err) return cb(new InternalOAuthError('Oops...failed to fetch user\'s ' + scope, err));
+             if (err) return cb(new InternalOAuthError('Spróbuj ponownie!' + scope, err));
              try {
                  const json = JSON.parse(body); 
                  cb(null, json);
