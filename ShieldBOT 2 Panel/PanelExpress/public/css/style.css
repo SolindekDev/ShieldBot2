@@ -7,6 +7,7 @@
     color: white;
     padding: 70px 20px;
     text-align: center;
+    bottom: 0%;
 }
 body {
     font-family: 'Montserrat', sans-serif;
@@ -22,6 +23,18 @@ a {
 a:hover {
     color: rgb(48, 122, 182);
     
+}
+.infoserver {
+    margin-top: 60px;
+    background-color: rgb(53, 48, 70);
+    padding: 30px 50px;
+    border-radius: 32px;
+    text-align: center;
+    clear: both;
+    transition: 0.1s all ease-in-out;
+}
+.infoserver:hover {
+    background-color: rgb(47, 43, 61);
 }
 .imageAvatar {
     border-radius: 50%;
@@ -113,6 +126,12 @@ a:hover {
         font-size: 10px;
     }
     .top {
+        margin-top: 60px;
+        background-color: rgb(53, 48, 70);
+        padding: 10px 30px;
+        border-radius: 32px;
+    }
+    .infoserver {
         margin-top: 60px;
         background-color: rgb(53, 48, 70);
         padding: 10px 30px;
