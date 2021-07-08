@@ -73,23 +73,6 @@
     <link rel="icon" href="https://cdn.discordapp.com/avatars/831470538480025610/a855988aef363049eba5664f89e29890.png?size=4096" type="image/png">
   </head>
   <body>
-    <div class="container-fluid body">
-        <div class="text">
-          <h1 class="titleH1">ShieldBOT</h1>
-          <span class="desc">Twój ulubiony bot który pomoże ci prowadzić twój <br>wspaniały serwer discord!</span>
-        </div>
-        <div class="btns">
-          <a href="/support"> 
-            <input type="button" value="Serwer Support">
-          </a>
-          <a href="/dodaj"> 
-            <input type="button" class="centerbutton" value="Dodaj bota">
-          </a>
-          <a href="/"> 
-            <input type="button"style="cursor: not-allowed; background-color: #306bff;" class="centerbutton" value="Panel">
-          </a>
-        </div>
-      </div><br><br><br><br>
       <div class="container-fluid">
           <h1>
             Statystyki
@@ -107,10 +90,21 @@
                     <h3>Osoby</h3>
                     <span><%= members %></span>
                 </div>
+          </div><br><br><br>
+          <div class="row">
+            <div class="col col-xs">
+                <h3>Procesor</h3>
+                <span><%= procesor %></span>
+            </div>
+            <div class="col col-xs">
+                <h3>Wątki procesora</h3>
+                <span><%= watkiprocesora %></span>
+            </div>
+            <div class="col-xs col">
+                <h3>System operacyjny serwera</h3>
+                <span><%= systemoperacyjny %></span>
+            </div>
           </div><br><br>
-          <a href="/statystyki"> 
-            <input type="button" value="Więcej statystyk">
-          </a>
           <br><br><br><br><br><br><br>
       </div>
 
