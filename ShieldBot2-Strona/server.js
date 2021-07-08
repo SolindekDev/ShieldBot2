@@ -33,6 +33,10 @@ app.get('/statystyki', (req, res) => {
     })
 })
 
+app.get('*', (req, res) => {
+    res.status(404).render('error404')
+})
+
 app.get('/dodaj', (req, res) => {
     res.redirect('https://discord.com/oauth2/authorize?client_id=831470538480025610&permissions=8&scope=bot')
 })
